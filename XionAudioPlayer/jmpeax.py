@@ -42,4 +42,5 @@ filename = "C:\Documents and Settings\yunaranyancat\Desktop\XionAudioPlayer\jmpe
 
 with open(filename, 'w') as outfile:
     outfile.write(fuzz)
+    
 
