@@ -46,8 +46,8 @@ def filterthebadguys(filetobadchars):
         line = filebadchars.readlines()
         for each in line:
             each = each.rstrip()
-            if each in allchars:
-                whereallthegoodcharsgather = whereallthegoodcharsgather.replace(each,"")
+            if each.lower() in allchars:
+                whereallthegoodcharsgather = whereallthegoodcharsgather.replace(each.lower(),"")
     return whereallthegoodcharsgather
 
 
