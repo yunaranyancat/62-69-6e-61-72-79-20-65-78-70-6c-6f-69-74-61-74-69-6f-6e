@@ -1,0 +1,3 @@
+app : cpuz
+version : 1.02
+
