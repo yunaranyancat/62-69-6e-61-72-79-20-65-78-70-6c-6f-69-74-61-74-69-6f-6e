@@ -1,4 +1,4 @@
-a collection of backdoored PE (portable executables)
+a collection of backdoored PE (portable executables) created by yunaranyancat
 
 hacking for fun and profit
 
